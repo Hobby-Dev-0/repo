@@ -5,7 +5,7 @@ from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
 from userbot import CMD_HELP
-from W2HBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
 @bot.on(admin_cmd(pattern="stats$"))
@@ -80,7 +80,7 @@ async def stats(
     response += f"♛ **Unread Mentions:** {unread_mentions} \n\n"
     response += f"🢂   __It Took:__ {stop_time:.02f}s \n"
     response += (
-        f"📌 **From The DataBase Of** :- [W2HBOT](https://t.me/W2H_Userbot)"
+        f"📌 **From The DataBase Of** :- [userbot](https://t.me/W2H_Userbot)"
     )
     await W2H.edit(response)
 

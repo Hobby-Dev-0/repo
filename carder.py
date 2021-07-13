@@ -6,12 +6,12 @@ from telethon.tl.functions.messages import DeleteHistoryRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from W2HBOT.utils import admin_cmd, sudo_cmd, edit_or_reply
-from W2HBOT import CmdHelp, bot as W2HBOT
+from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from userbot import CmdHelp, bot as userbot
 
 
-@W2HBOT.on(admin_cmd("gencc$"))
-@W2HBOT.on(sudo_cmd("gencc$", allow_sudo=True))
+@userbot.on(admin_cmd("gencc$"))
+@userbot.on(sudo_cmd("gencc$", allow_sudo=True))
 async def _(W2Hevent):
     if W2Hevent.fwd_from:
         return
@@ -23,8 +23,8 @@ async def _(W2Hevent):
     await edit_or_reply(W2Hevent, f"__**👤 NAME :- **__\n`{W2Hname}`\n\n__**🏡 ADDRESS :- **__\n`{W2Hadre}`\n\n__**💸 CARD :- **__\n`{W2Hcard}`")
     
 
-@W2HBOT.on(admin_cmd(pattern="bin ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="bin ?(.*)"))
+@userbot.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -44,8 +44,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
 
-@W2HBOT.on(admin_cmd(pattern="vbv ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="vbv ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="vbv ?(.*)"))
+@userbot.on(sudo_cmd(pattern="vbv ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -65,8 +65,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
     
     
-@W2HBOT.on(admin_cmd(pattern="key ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="key ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="key ?(.*)"))
+@userbot.on(sudo_cmd(pattern="key ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -86,8 +86,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
  
   
-@W2HBOT.on(admin_cmd(pattern="iban ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="iban ?(.*)"))
+@userbot.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -107,8 +107,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
     
-@W2HBOT.on(admin_cmd(pattern="ccheck ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="ccheck ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="ccheck ?(.*)"))
+@userbot.on(sudo_cmd(pattern="ccheck ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -128,8 +128,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
              
              
-@W2HBOT.on(admin_cmd(pattern="ccbin ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="ccbin ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="ccbin ?(.*)"))
+@userbot.on(sudo_cmd(pattern="ccbin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 

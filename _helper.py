@@ -5,7 +5,7 @@ import requests
 from telethon import functions
 
 from userbot import ALIVE_NAME, CMD_LIST, SUDO_LIST
-from W2HBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="help ?(.*)", outgoing=True))
@@ -40,7 +40,7 @@ async def info(event):
     input_str = event.pattern_match.group(1)
     if input_str == "text":
         string = (
-            "Total {count} commands found in {plugincount} sudo plugins of W2HBOT\n\n"
+            "Total {count} commands found in {plugincount} sudo plugins of userbot\n\n"
         )
         W2Hcount = 0
         plugincount = 0
@@ -63,7 +63,7 @@ async def info(event):
                 .get("key")
             )
             url = f"https://nekobin.com/{key}"
-            reply_text = f"All commands of the W2HBOT are [here]({url})"
+            reply_text = f"All commands of the userbot are [here]({url})"
             await event.reply(reply_text, link_preview=False)
             return
         await event.reply(

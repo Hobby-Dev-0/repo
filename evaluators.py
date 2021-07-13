@@ -6,7 +6,7 @@ import os
 import sys
 import traceback
 
-from W2HBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import *
 from userbot.cmdhelp import CmdHelp
 
@@ -28,7 +28,7 @@ async def _(event):
     if W2Huser.username:
         curruser = W2Huser.username
     else:
-        curruser = "W2HBOT"
+        curruser = "userbot"
     uid = os.geteuid()
     if uid == 0:
         cresult = f"`{curruser}:~#` `{cmd}`\n`{result}`"
@@ -148,7 +148,7 @@ async def _(event):
 CmdHelp("evaluators").add_command(
   'eval', '<expr>', 'Execute python script'
 ).add_command(
-  'exec', '<command>', 'Execute a Terminal command on W2HBOT server and shows details'
+  'exec', '<command>', 'Execute a Terminal command on userbot server and shows details'
 ).add_command(
   'bash', '<query>', 'Bash your codes on linux and gives the output in current chat'
 ).add()

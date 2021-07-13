@@ -7,7 +7,7 @@ import asyncio
 from userbot.cmdhelp import CmdHelp
 
 from userbot import *
-from W2HBOT.utils import *
+from userbot.utils import *
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "W2H User"
 

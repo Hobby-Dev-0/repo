@@ -6,10 +6,10 @@ from telethon.tl import functions
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
 
 from userbot import ALIVE_NAME, BIO_MSG, CMD_HELP
-from W2HBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
-DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "Legendary W2HBOT"
+DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "Legendary userbot"
 DEL_TIME_OUT = 60
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "W2H User"
 

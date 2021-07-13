@@ -12,10 +12,10 @@ from telethon.tl.functions.messages import DeleteHistoryRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon import functions, types, events
-from W2HBOT import CmdHelp, bot as W2HBOT
-from W2HBOT.utils import admin_cmd, sudo_cmd, edit_or_reply as eor
-from W2HBOT.Config import Config
-from W2HBOT.plugins.sql_helper.fban_sql import (
+from userbot import CmdHelp, bot as userbot
+from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply as eor
+from userbot.Config import Config
+from userbot.plugins.sql_helper.fban_sql import (
     add_channel,
     get_all_channels,
     in_channels,
@@ -24,14 +24,14 @@ from W2HBOT.plugins.sql_helper.fban_sql import (
 
 logs_id = Config.FBAN_LOGGER_GROUP
 bot = "@MissRose_bot"
-W2H_logo = "./W2H/W2HBOT_logo.jpg"
+W2H_logo = "./W2H/userbot_logo.jpg"
 # Keep all credits pls
 # madewith great effort by @HeisenbergTheDanger
 # modified by @David99q for fbans
 
 
-@W2HBOT.on(admin_cmd(pattern="fban ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="fban ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="fban ?(.*)"))
+@userbot.on(sudo_cmd(pattern="fban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -144,8 +144,8 @@ async def _(event):
                 except BaseException:
                     await mssg.edit("Set up heroku var `FBAN_LOGGER_GROUP` for checking errors.")# Written by @HeisenbergTheDanger
 
-@W2HBOT.on(admin_cmd(pattern="unfban ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="unfban ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="unfban ?(.*)"))
+@userbot.on(sudo_cmd(pattern="unfban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -259,8 +259,8 @@ async def _(event):
                     await mssg.edit("Set up heroku var `FBAN_LOGGER_GROUP` for checking errors.")
 
 
-@W2HBOT.on(admin_cmd(pattern=r"fadd ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern=r"fadd ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern=r"fadd ?(.*)"))
+@userbot.on(sudo_cmd(pattern=r"fadd ?(.*)", allow_sudo=True))
 async def add_ch(event):
     if event.fwd_from:
         return
@@ -300,8 +300,8 @@ async def add_ch(event):
         await event.delete()
 
 
-@W2HBOT.on(admin_cmd(pattern=r"fremove ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern=r"fremove ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern=r"fremove ?(.*)"))
+@userbot.on(sudo_cmd(pattern=r"fremove ?(.*)", allow_sudo=True))
 async def remove_ch(event):
     if event.fwd_from:
         return
@@ -329,8 +329,8 @@ async def remove_ch(event):
         await event.delete()
 
 
-@W2HBOT.on(admin_cmd(pattern="fgroups"))
-@W2HBOT.on(sudo_cmd(pattern="fgroups", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="fgroups"))
+@userbot.on(sudo_cmd(pattern="fgroups", allow_sudo=True))
 async def list(event):
     if event.fwd_from:
         return
@@ -356,8 +356,8 @@ async def list(event):
         await eor(event, msg)
 
 
-@W2HBOT.on(admin_cmd(pattern="fsearch ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="fsearch ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="fsearch ?(.*)"))
+@userbot.on(sudo_cmd(pattern="fsearch ?(.*)", allow_sudo=True))
 async def search(event):
     if event.fwd_from:
         return
@@ -377,8 +377,8 @@ async def search(event):
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 
-@W2HBOT.on(admin_cmd(pattern="newfed ?(.*)", outgoing=True))
-@W2HBOT.on(sudo_cmd(pattern="newfed ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="newfed ?(.*)", outgoing=True))
+@userbot.on(sudo_cmd(pattern="newfed ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -403,8 +403,8 @@ async def _(event):
             await eor(event, f"{response.message.message}")
 
 
-@W2HBOT.on(admin_cmd(pattern="renamefed ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="renamefed ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="renamefed ?(.*)"))
+@userbot.on(sudo_cmd(pattern="renamefed ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
@@ -424,8 +424,8 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
 
-@W2HBOT.on(admin_cmd(pattern="fstat ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="fstat ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="fstat ?(.*)"))
+@userbot.on(sudo_cmd(pattern="fstat ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -454,11 +454,11 @@ async def _(event):
                     await massive.click(0)
                     await asyncio.sleep(2)
                     massive = await conv.get_response()
-                    await W2HBOT.send_file(
+                    await userbot.send_file(
                         event.chat_id,
                         massive,
                         thumb=thumb,
-                        caption=f"List of feds {user} has been banned in.\n\n**⚡ [Collected using W2HBOT](t.me/W2H_Userbot) ⚡**",
+                        caption=f"List of feds {user} has been banned in.\n\n**⚡ [Collected using userbot](t.me/W2H_Userbot) ⚡**",
                     )
                 else:
                     await borg.send_message(event.chat_id, massive.text)
@@ -467,8 +467,8 @@ async def _(event):
                 await W2H.edit("`Please Unblock` @MissRose_Bot")
 
 
-@W2HBOT.on(admin_cmd(pattern="fedinfo ?(.*)"))
-@W2HBOT.on(sudo_cmd(pattern="fedinfo ?(.*)", allow_sudo=True))
+@userbot.on(admin_cmd(pattern="fedinfo ?(.*)"))
+@userbot.on(sudo_cmd(pattern="fedinfo ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -480,7 +480,7 @@ async def _(event):
             await conv.get_response()
             await conv.send_message("/fedinfo " + lavde)
             massive = await conv.get_response()
-            await W2H.edit(massive.text + "\n\n**LEGENDARY_AF_W2HBOT**")
+            await W2H.edit(massive.text + "\n\n**LEGENDARY_AF_userbot**")
         except YouBlockedUserError:
             await W2H.edit("`Please Unblock` @MissRose_Bot")
             

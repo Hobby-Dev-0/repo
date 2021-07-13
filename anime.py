@@ -1,9 +1,9 @@
 import re
 
-from W2HBOT import bot
-from W2HBOT.utils import admin_cmd, sudo_cmd, edit_or_reply
-from W2HBOT.cmdhelp import CmdHelp
-from W2HBOT.helpers.functions import deEmojify
+from userbot import bot
+from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from userbot.cmdhelp import CmdHelp
+from userbot.helpers.functions import deEmojify
 
 
 @bot.on(admin_cmd(pattern="anime(?: |$)(.*)"))
